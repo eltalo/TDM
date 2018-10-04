@@ -45,4 +45,5 @@ class CreatePartidosTable extends Migration
     {
         Schema::dropIfExists('Partidos');
     }
+    //
 }
