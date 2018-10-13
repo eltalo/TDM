@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class HomeController extends Controller
 {
@@ -24,5 +26,8 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+        //$infos = DB::select('call SP_TDM_INFO_JUGADOR();');
+        //return view('Partido.index',compact('infos')); 
+
     }
 }

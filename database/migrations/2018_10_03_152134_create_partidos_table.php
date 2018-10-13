@@ -31,7 +31,9 @@ class CreatePartidosTable extends Migration
             $table->unsignedTinyInteger('PtosJugador2Set6');
             $table->unsignedTinyInteger('PtosJugador1Set7');
             $table->unsignedTinyInteger('PtosJugador2Set7');
+            $table->unsignedTinyInteger('GANADOR');
             $table->dateTime('FechaPartido');
+            $table->unsignedTinyInteger('IdUsuarioInserta');
             $table->timestamps();
         });
     }

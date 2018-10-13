@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->unsignedTinyInteger('diapago');
+            $table->unsignedTinyInteger('nivel');
             $table->rememberToken();
             $table->timestamps();
         });
