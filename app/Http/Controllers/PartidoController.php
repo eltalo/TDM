@@ -18,13 +18,19 @@ class PartidoController extends Controller
         //
         $infos = DB::select('call SP_TDM_INFO_JUGADOR();');
         return view('Partido.index',compact('infos')); 
-        
 
         //$partidos=Partido::orderBy('id','DESC')->paginate(10);
         //return view('Partido.index',compact('partidos')); 
         
     }
-
+    public function show($id)
+    {
+        $infops = DB::select('call SP_TDM_INFO_PARTIDO('.$id.');');
+        return  view('Partido.show',compact('infops'));
+        //$Partidos=Partido::find($id);
+        //return  view('Partido.show',compact('Partidos'));
+    }
+    
     public function create()
     {
         $usuarios = User::orderBy("name")->get();
@@ -63,11 +69,6 @@ class PartidoController extends Controller
         $retorno = DB::select('call sp_TDM_partido_add('.$valores.');');
         //$retorno = DB::select('call sp_TDM_partido_add('.$IDJ1.','.$IDJ2.','.$J1S1.','.$J1S2.','.$J1S3.','.$J1S4.','.$J1S5.','.$J2S1.','.$J2S2.','.$J2S2.','.$J2S4.','.$J2S5.');');
         return redirect()->route('partido.index')->with('success','Registro creado satisfactoriamente');
-    }
-    public function show($id)
-    {
-        $Partidos=Libro::find($id);
-        return  view('partido.show',compact('Partidos'));
     }
     public function edit($id)
     {

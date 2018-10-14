@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row">
@@ -13,9 +12,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                    <div class="btn-group">
+                        <a href="{{ route('partido.create') }}" class="btn btn-info" >Nuevo Partido</a>
+                     </div>
                 </div>
+                
             </div>
         </div>
     </div>
