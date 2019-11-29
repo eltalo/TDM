@@ -38,7 +38,22 @@ class PartidoController extends Controller
     }
     public function store(Request $request)
     {
-        //
+        $idUsuaio = Auth::user()->id; // usuario que esta logueado
+        $IDJ1 = $request->IDJugador1;
+        $IDJ2 = $request->IDJugador2;
+        $J1Qset = $request->PtosJugador1;
+        $J2Qset = $request->PtosJugador2;            
+        if ($J1Qset===null) {$J1Qset = 0;}
+        if ($J2Qset===null) {$J2Qset = 0;}
+        $valores=$IDJ1.','.$IDJ2.','.$J1Qset.','.$J2Qset.','.$idUsuaio;
+        $retorno = DB::select('call sp_TDM_partido_set_add('.$valores.');');
+        //$retorno = DB::select('call sp_TDM_partido_add('.$IDJ1.','.$IDJ2.','.$J1S1.','.$J1S2.','.$J1S3.','.$J1S4.','.$J1S5.','.$J2S1.','.$J2S2.','.$J2S2.','.$J2S4.','.$J2S5.');');
+        return redirect()->route('partido.index')->with('success','Registro creado satisfactoriamente');
+    }
+        /*
+    public function store(Request $request)
+    {
+        //dd($request);
         //$this->validate($request,[ 'IDJugador1'=>'required', 'IDJugador2'=>'required']);
         //Partido::create($request->all());
         $idUsuaio = Auth::user()->id; // usuario que esta logueado
@@ -70,6 +85,7 @@ class PartidoController extends Controller
         //$retorno = DB::select('call sp_TDM_partido_add('.$IDJ1.','.$IDJ2.','.$J1S1.','.$J1S2.','.$J1S3.','.$J1S4.','.$J1S5.','.$J2S1.','.$J2S2.','.$J2S2.','.$J2S4.','.$J2S5.');');
         return redirect()->route('partido.index')->with('success','Registro creado satisfactoriamente');
     }
+    */
     public function edit($id)
     {
         $partido=partido::find($id);
@@ -83,6 +99,7 @@ class PartidoController extends Controller
     }
     public function destroy($id)
     {
+        dd($id);
         Partido::find($id)->delete();
         return redirect()->route('partido.index')->with('success','Registro eliminado satisfactoriamente');
     }    

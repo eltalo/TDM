@@ -13,7 +13,7 @@
                         </div>
                     @endif
                     <div class="btn-group">
-                        <a href="{{ route('partido.create') }}" class="btn btn-info" >Nuevo Partido</a>
+                        <!-- <a href="{{ route('partido.create') }}" class="btn btn-info" >Nuevo Partido</a> -->
                      </div>
                 </div>
                 

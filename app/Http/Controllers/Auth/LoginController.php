@@ -26,7 +26,14 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
-
+    
+    public function logout() 
+    {
+        //logout user
+        auth()->logout();
+        // redirect to homepage
+        return redirect('/');
+    }
     /**
      * Create a new controller instance.
      *

@@ -19,6 +19,7 @@
                 <th>Partidos Jugados</th>
                 <th>Partidos Ganados</th>
                 <th>Rendimiento</th>
+                <!-- <th>Accion</th> -->
              <tbody>
                 @foreach($infos as $info)  
                 <tr>
@@ -30,6 +31,14 @@
                     <td>{{$info->JUGADOS}}</td>
                     <td>{{$info->GANADOS}}</td>
                     <td>{{$info->Rendimiento}}</td>
+                    <!--
+                    <td>
+                        <form action="{{action('AsistenciaController@destroy', $info->id)}}" method="post">
+                         {{csrf_field()}}
+                         {{ method_field('DELETE') }}
+                         <button class="btn btn-danger btn-xs" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
+                       </td>
+                      -->
                  </tr>
                  @endforeach 
             </tbody>

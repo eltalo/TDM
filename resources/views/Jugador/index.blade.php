@@ -6,7 +6,7 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="pull-left"><h3>Ranking Jugadores</h3>
-<!--
+
           <select name="FechaPartido" id="FechaPartido" class="form-control">
               <label for="">Fecha</label>
               {{$num=0}}
@@ -15,7 +15,11 @@
                 {{$num++}}
               @endforeach
           </select>	
-        -->      
+          <input type="number" name="PtosJugador1Set1" id="PtosJugador1Set1" class="form-control input-sm" >
+          
+          <a href="{{ url('jugador') }}" class="btn btn-info" >Ranking fecha</a>
+          
+
           </div>
           {{ csrf_field() }}
 
